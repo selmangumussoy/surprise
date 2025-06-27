@@ -1,142 +1,128 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mini Jest</title>
+  <meta charset="UTF-8">
+  <title>Senin İçin Küçük Bir Jest</title>
   <style>
     body {
-      margin: 0;
+      background: linear-gradient(to right, #ffd4d4, #ffeaea);
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #ffe4e1, #ffb6c1);
+      text-align: center;
+      padding: 50px 20px;
       overflow-x: hidden;
     }
-
     .step {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      text-align: center;
-      padding: 2rem;
+      font-size: 1.5rem;
+      margin: 40px 0;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
     }
-
-    h1 {
-      font-size: 2.5rem;
-      color: #ff0055;
+    #buttons {
+      margin-top: 50px;
+      display: none;
     }
-
-    .btns {
-      margin-top: 2rem;
-    }
-
     button {
+      padding: 15px 30px;
       font-size: 1.2rem;
-      padding: 1rem 2rem;
-      margin: 0.5rem;
+      margin: 20px;
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      transition: 0.3s ease;
+      transition: all 0.3s ease;
     }
-
-    .yes {
-      background-color: #28a745;
+    #yesBtn {
+      background-color: #ff6b81;
       color: white;
     }
-
-    .no {
-      background-color: #dc3545;
-      color: white;
-      position: relative;
+    #noBtn {
+      background-color: #ddd;
     }
-
     .heart {
       position: fixed;
-      top: -20px;
-      font-size: 2rem;
+      width: 30px;
+      height: 30px;
+      background: red;
+      transform: rotate(45deg);
       animation: fall 3s linear infinite;
-      z-index: 999;
     }
-
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background: red;
+      border-radius: 50%;
+    }
+    .heart::before {
+      top: -15px;
+      left: 0;
+    }
+    .heart::after {
+      left: -15px;
+      top: 0;
+    }
     @keyframes fall {
-      0% { transform: translateY(0); opacity: 1; }
-      100% { transform: translateY(100vh); opacity: 0; }
+      0% { top: -10%; opacity: 1; }
+      100% { top: 110%; opacity: 0; transform: translateX(20px) rotate(45deg); }
     }
-
   </style>
 </head>
 <body>
 
-<div id="steps">
-  <div class="step">
-    <h1>1. Adım: Beni hala seviyor musun?</h1>
-    <div class="btns">
-      <button class="yes">Evet ❤️</button>
-      <button class="no">Hayır 😔</button>
-    </div>
-  </div>
-  <div class="step">
-    <h1>2. Adım: En çok neyi özledin?</h1>
-    <div class="btns">
-      <button class="yes">Sesini 🥰</button>
-      <button class="no">Hiçbir şeyi 😶</button>
-    </div>
-  </div>
-  <div class="step">
-    <h1>3. Adım: Yeniden başlamak ister misin?</h1>
-    <div class="btns">
-      <button class="yes">Evet 💫</button>
-      <button class="no">Hayır 😩</button>
-    </div>
-  </div>
-  <div class="step">
-    <h1>4. Adım: O eski güzel günleri hatırlıyor musun?</h1>
-    <div class="btns">
-      <button class="yes">Evet 🌈</button>
-      <button class="no">Hayır 🙄</button>
-    </div>
-  </div>
-  <div class="step">
-    <h1>5. Adım: Bana bir şans daha verir misin?</h1>
-    <div class="btns">
-      <button class="yes" onclick="celebrate()">Tabii ki evet 💖</button>
-      <button class="no">Hayır 😤</button>
-    </div>
-  </div>
-</div>
+  <h1>Senin için küçük bir sürprizim var 💌</h1>
 
-<script>
-  const noButtons = document.querySelectorAll(".no");
+  <div id="steps">
+    <div class="step">1️⃣ Bazen kelimeler yetersiz kalır, ben de böyle bir yol seçtim...</div>
+    <div class="step">2️⃣ Senin gülüşün, karanlık günlerimin güneşi gibi parlıyor.</div>
+    <div class="step">3️⃣ Beraber güldüğümüz anlar, en güzel filmlerin ötesinde...</div>
+    <div class="step">4️⃣ Her şey yolunda olmasa da, sen yanımda olunca dünya güzelleşiyor.</div>
+    <div class="step">5️⃣ Şimdi soruyorum: Aramızdaki bu bağı yeniden güzelleştirelim mi? 💞</div>
+  </div>
 
-  noButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      const maxX = window.innerWidth - btn.offsetWidth;
-      const maxY = window.innerHeight - btn.offsetHeight;
-      const newX = Math.random() * maxX;
-      const newY = Math.random() * maxY;
+  <div id="buttons">
+    <button id="yesBtn">Evet 💖</button>
+    <button id="noBtn">Hayır 🙃</button>
+  </div>
 
-      btn.style.position = "absolute";
-      btn.style.left = `${newX}px`;
-      btn.style.top = `${newY + window.scrollY}px`;
-    });
-  });
+  <script>
+    // Adımları sırayla göster
+    const steps = document.querySelectorAll('.step');
+    let i = 0;
+    const showSteps = setInterval(() => {
+      if (i < steps.length) {
+        steps[i].style.opacity = 1;
+        i++;
+      } else {
+        clearInterval(showSteps);
+        document.getElementById('buttons').style.display = 'block';
+      }
+    }, 2000);
 
-  function celebrate() {
-    for (let i = 0; i < 30; i++) {
-      const heart = document.createElement("div");
-      heart.classList.add("heart");
-      heart.innerText = "💖";
-      heart.style.left = `${Math.random() * 100}vw`;
+    // Kalp oluştur
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + "vw";
       document.body.appendChild(heart);
-
       setTimeout(() => heart.remove(), 3000);
     }
 
-    alert("Seni gerçekten çok seviyorum ve her şeyin düzelmesini istiyorum 💌");
-  }
-</script>
+    // Evet butonu
+    document.getElementById('yesBtn').addEventListener('click', () => {
+      setInterval(createHeart, 200);
+    });
+
+    // Hayır butonu kaçma
+    const noBtn = document.getElementById('noBtn');
+    noBtn.addEventListener('click', () => {
+      const x = Math.random() * (window.innerWidth - 150);
+      const y = Math.random() * (window.innerHeight - 100);
+      noBtn.style.position = 'absolute';
+      noBtn.style.left = `${x}px`;
+      noBtn.style.top = `${y}px`;
+    });
+  </script>
 
 </body>
 </html>
