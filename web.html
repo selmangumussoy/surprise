@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>5 Adımda Sana Gelmek 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      color: white;
+      padding-top: 80px;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 30px;
+    }
+
+    button {
+      padding: 15px 30px;
+      margin: 10px;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 25px;
+      background-color: #ff6f91;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #ff4f73;
+    }
+
+    .step {
+      display: none;
+      font-size: 1.3em;
+      margin: 20px auto;
+      max-width: 600px;
+      line-height: 1.7;
+    }
+
+    #final {
+      font-size: 1.5em;
+      margin-top: 50px;
+      display: none;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>5 Adımda Sana Gelmek 💫</h1>
+
+  <button onclick="showStep(1)">1. Adım</button>
+  <button onclick="showStep(2)">2. Adım</button>
+  <button onclick="showStep(3)">3. Adım</button>
+  <button onclick="showStep(4)">4. Adım</button>
+  <button onclick="showStep(5)">5. Adım</button>
+
+  <div id="step1" class="step">Bazen hatalar yapabiliyorum... Ama inan ki kötü niyetle değil 💔</div>
+  <div id="step2" class="step">Sana kırıcı bir söz söylediysem, içim içimi yedi...</div>
+  <div id="step3" class="step">Sen benim için hâlâ çok değerlisin, bunu hiçbir şey değiştirmedi.</div>
+  <div id="step4" class="step">Gülüşün eksik kaldı, sohbetin yokluğu hissedildi...</div>
+  <div id="step5" class="step">Ve işte buradayım. Tekrar kalbine gelmek istiyorum... 💖</div>
+
+  <div id="final">Barışalım mı? 🙈  
+    <br><br>
+    <button onclick="alert('O zaman bir gülümseme yolla bana 😊')">Evet</button>
+  </div>
+
+  <script>
+    function showStep(num) {
+      document.getElementById('step' + num).style.display = 'block';
+      if (num === 5) {
+        document.getElementById('final').style.display = 'block';
+      }
+    }
+  </script>
+
+</body>
+</html>
