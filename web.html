@@ -2,32 +2,49 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <title>Barışalım mı? 💖</title>
+  <title>5 Adımda Sana Gelmek 💖</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       background: linear-gradient(to right, #fbc2eb, #a6c1ee);
       font-family: 'Segoe UI', sans-serif;
       text-align: center;
-      padding-top: 80px;
+      color: white;
+      padding-top: 50px;
       overflow: hidden;
-      color: #fff;
     }
 
     h1 {
-      font-size: 2.5em;
-      margin-bottom: 30px;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+      font-size: 2.3em;
+      margin-bottom: 20px;
     }
 
-    #btn-yes, #btn-no {
-      padding: 15px 30px;
-      font-size: 1.2em;
+    button {
+      padding: 12px 25px;
+      margin: 10px;
+      font-size: 1.1em;
       border: none;
       border-radius: 25px;
       cursor: pointer;
-      margin: 20px;
       transition: all 0.3s ease;
+    }
+
+    .step {
+      display: none;
+      font-size: 1.2em;
+      margin: 20px auto;
+      max-width: 700px;
+      line-height: 1.7;
+      padding: 10px 20px;
+    }
+
+    #btn-yes, #btn-no {
+      padding: 14px 30px;
+      font-size: 1.2em;
+      margin: 20px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
     }
 
     #btn-yes {
@@ -38,14 +55,13 @@
     #btn-no {
       background: white;
       color: #ff6f91;
-      position: absolute;
     }
 
     .heart {
       position: absolute;
       font-size: 24px;
       color: #ff6f91;
-      animation: fly 1s ease-out forwards;
+      animation: fly 1.2s ease-out forwards;
       pointer-events: none;
     }
 
@@ -57,17 +73,33 @@
 </head>
 <body>
 
-  <h1>Barışalım mı? 🙈</h1>
+  <h1>5 Adımda Sana Gelmek 💫</h1>
 
-  <button id="btn-yes">Evet 💖</button>
-  <button id="btn-no">Hayır 🙅‍♀️</button>
+  <button onclick="showStep(1)">1. Adım</button>
+  <button onclick="showStep(2)">2. Adım</button>
+  <button onclick="showStep(3)">3. Adım</button>
+  <button onclick="showStep(4)">4. Adım</button>
+  <button onclick="showStep(5)">5. Adım</button>
+
+  <div id="step1" class="step">Bazen hata yapıyorum… ama seni hiç kırmak istemedim 💔</div>
+  <div id="step2" class="step">Kızgın olmanı anlıyorum… ama yokluğun sessiz geliyor 😔</div>
+  <div id="step3" class="step">Seninle konuşmak, susmaktan bin kat daha güzel 💬</div>
+  <div id="step4" class="step">Gülüşün eksik, ben eksik… ama ikimiz bir bütün olabiliriz 🧩</div>
+  <div id="step5" class="step">
+    Şimdi hazırsan, son sorum geliyor:  
+    <br><br><strong>Barışalım mı?</strong>
+    <br><br>
+    <button id="btn-yes">Evet 💖</button>
+    <button id="btn-no">Hayır 🙃</button>
+  </div>
 
   <script>
-    const btnYes = document.getElementById("btn-yes");
-    const btnNo = document.getElementById("btn-no");
+    function showStep(num) {
+      document.getElementById("step" + num).style.display = "block";
+    }
 
-    // Kalpler fırlasın
-    btnYes.addEventListener("click", () => {
+    // Evet: Kalp efekti ve mesaj
+    document.getElementById("btn-yes").addEventListener("click", () => {
       for (let i = 0; i < 30; i++) {
         const heart = document.createElement("div");
         heart.className = "heart";
@@ -77,23 +109,15 @@
         heart.style.fontSize = (Math.random() * 10 + 20) + "px";
         heart.style.animationDuration = (Math.random() * 1 + 1) + "s";
         document.body.appendChild(heart);
-        setTimeout(() => heart.remove(), 1200);
+        setTimeout(() => heart.remove(), 1500);
       }
-      alert("O zaman bir gülümseme yolla bana 😊");
+      alert("Seni hâlâ seviyorum... Teşekkür ederim 💌");
     });
 
-    // Hayır butonu kaçsın 😈
-    btnNo.addEventListener("mouseover", () => {
-      const x = Math.random() * (window.innerWidth - btnNo.offsetWidth);
-      const y = Math.random() * (window.innerHeight - btnNo.offsetHeight);
-      btnNo.style.left = x + "px";
-      btnNo.style.top = y + "px";
+    // Hayır: başka sayfaya yönlendir
+    document.getElementById("btn-no").addEventListener("click", () => {
+      window.location.href = "https://tenor.com/view/cry-emoji-sad-sorry-cute-gif-25639048"; // üzgün emoji GIF'i
     });
-
-    // Başlangıç konumu
-    btnNo.style.left = "50%";
-    btnNo.style.top = "60%";
-    btnNo.style.transform = "translate(-50%, -50%)";
   </script>
 
 </body>
