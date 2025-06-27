@@ -1,132 +1,142 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <title>5 Adımda Sana Gelmek 💖</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mini Jest</title>
   <style>
     body {
-      background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+      margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      text-align: center;
-      color: white;
-      padding-top: 50px;
+      background: linear-gradient(135deg, #ffe4e1, #ffb6c1);
       overflow-x: hidden;
-      overflow-y: auto;
-      min-height: 100vh;
-    }
-
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 20px;
-    }
-
-    button {
-      padding: 12px 25px;
-      margin: 10px;
-      font-size: 1.1em;
-      border: none;
-      border-radius: 25px;
-      cursor: pointer;
-      transition: all 0.3s ease;
     }
 
     .step {
-      display: none;
-      font-size: 1.2em;
-      margin: 20px auto;
-      max-width: 700px;
-      line-height: 1.7;
-      padding: 10px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 2rem;
     }
 
-    #btn-yes, #btn-no {
-      padding: 14px 30px;
-      font-size: 1.2em;
-      margin: 20px;
+    h1 {
+      font-size: 2.5rem;
+      color: #ff0055;
+    }
+
+    .btns {
+      margin-top: 2rem;
+    }
+
+    button {
+      font-size: 1.2rem;
+      padding: 1rem 2rem;
+      margin: 0.5rem;
       border: none;
-      border-radius: 25px;
+      border-radius: 8px;
       cursor: pointer;
-      position: relative;
+      transition: 0.3s ease;
     }
 
-    #btn-yes {
-      background: #ff6f91;
+    .yes {
+      background-color: #28a745;
       color: white;
     }
 
-    #btn-no {
-      background: white;
-      color: #ff6f91;
+    .no {
+      background-color: #dc3545;
+      color: white;
+      position: relative;
     }
 
     .heart {
-      position: absolute;
-      font-size: 24px;
-      color: #ff6f91;
-      animation: fly 2.5s linear forwards;
-      pointer-events: none;
+      position: fixed;
+      top: -20px;
+      font-size: 2rem;
+      animation: fall 3s linear infinite;
+      z-index: 999;
     }
 
-    @keyframes fly {
+    @keyframes fall {
       0% { transform: translateY(0); opacity: 1; }
-      100% { transform: translateY(-100vh); opacity: 0; }
+      100% { transform: translateY(100vh); opacity: 0; }
     }
+
   </style>
 </head>
 <body>
 
-  <h1>5 Adımda Sana Gelmek 💫</h1>
-
-  <button onclick="showStep(1)">1. Adım</button>
-  <button onclick="showStep(2)">2. Adım</button>
-  <button onclick="showStep(3)">3. Adım</button>
-  <button onclick="showStep(4)">4. Adım</button>
-  <button onclick="showStep(5)">5. Adım</button>
-
-  <div id="step1" class="step">Bazen hata yapıyorum… ama seni hiç kırmak istemedim 💔</div>
-  <div id="step2" class="step">Kızgın olmanı anlıyorum… ama yokluğun sessiz geliyor 😔</div>
-  <div id="step3" class="step">Seninle konuşmak, susmaktan bin kat daha güzel 💬</div>
-  <div id="step4" class="step">Gülüşün eksik, ben eksik… ama ikimiz bir bütün olabiliriz 🧩</div>
-  <div id="step5" class="step">
-    Şimdi hazırsan, son sorum geliyor:  
-    <br><br><strong>Barışalım mı?</strong>
-    <br><br>
-    <button id="btn-yes">Evet 💖</button>
-    <button id="btn-no">Hayır 🙃</button>
+<div id="steps">
+  <div class="step">
+    <h1>1. Adım: Beni hala seviyor musun?</h1>
+    <div class="btns">
+      <button class="yes">Evet ❤️</button>
+      <button class="no">Hayır 😔</button>
+    </div>
   </div>
+  <div class="step">
+    <h1>2. Adım: En çok neyi özledin?</h1>
+    <div class="btns">
+      <button class="yes">Sesini 🥰</button>
+      <button class="no">Hiçbir şeyi 😶</button>
+    </div>
+  </div>
+  <div class="step">
+    <h1>3. Adım: Yeniden başlamak ister misin?</h1>
+    <div class="btns">
+      <button class="yes">Evet 💫</button>
+      <button class="no">Hayır 😩</button>
+    </div>
+  </div>
+  <div class="step">
+    <h1>4. Adım: O eski güzel günleri hatırlıyor musun?</h1>
+    <div class="btns">
+      <button class="yes">Evet 🌈</button>
+      <button class="no">Hayır 🙄</button>
+    </div>
+  </div>
+  <div class="step">
+    <h1>5. Adım: Bana bir şans daha verir misin?</h1>
+    <div class="btns">
+      <button class="yes" onclick="celebrate()">Tabii ki evet 💖</button>
+      <button class="no">Hayır 😤</button>
+    </div>
+  </div>
+</div>
 
-  <script>
-    function showStep(num) {
-      document.getElementById("step" + num).style.display = "block";
+<script>
+  const noButtons = document.querySelectorAll(".no");
+
+  noButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const maxX = window.innerWidth - btn.offsetWidth;
+      const maxY = window.innerHeight - btn.offsetHeight;
+      const newX = Math.random() * maxX;
+      const newY = Math.random() * maxY;
+
+      btn.style.position = "absolute";
+      btn.style.left = `${newX}px`;
+      btn.style.top = `${newY + window.scrollY}px`;
+    });
+  });
+
+  function celebrate() {
+    for (let i = 0; i < 30; i++) {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerText = "💖";
+      heart.style.left = `${Math.random() * 100}vw`;
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 3000);
     }
 
-    // Kalp yağmuru
-    document.getElementById("btn-yes").addEventListener("click", () => {
-      for (let i = 0; i < 60; i++) {
-        const heart = document.createElement("div");
-        heart.className = "heart";
-        heart.innerText = "💖";
-        heart.style.left = Math.random() * 100 + "vw";
-        heart.style.top = Math.random() * 100 + "vh";
-        heart.style.fontSize = (Math.random() * 10 + 20) + "px";
-        heart.style.animationDuration = (Math.random() * 2 + 1) + "s";
-        document.body.appendChild(heart);
-        setTimeout(() => heart.remove(), 3000);
-      }
-      alert("O zaman bir gülümseme yolla bana 😊");
-    });
-
-    // Hayır butonu kaçsın
-    const btnNo = document.getElementById("btn-no");
-    btnNo.addEventListener("click", () => {
-      const x = Math.random() * (window.innerWidth - btnNo.offsetWidth);
-      const y = Math.random() * (window.innerHeight - btnNo.offsetHeight);
-      btnNo.style.position = "absolute";
-      btnNo.style.left = x + "px";
-      btnNo.style.top = y + "px";
-    });
-  </script>
+    alert("Seni gerçekten çok seviyorum ve her şeyin düzelmesini istiyorum 💌");
+  }
+</script>
 
 </body>
 </html>
