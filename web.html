@@ -13,10 +13,11 @@
       padding-top: 50px;
       overflow-x: hidden;
       overflow-y: auto;
+      min-height: 100vh;
     }
 
     h1 {
-      font-size: 2.3em;
+      font-size: 2.5em;
       margin-bottom: 20px;
     }
 
@@ -46,6 +47,7 @@
       border: none;
       border-radius: 25px;
       cursor: pointer;
+      position: relative;
     }
 
     #btn-yes {
@@ -62,13 +64,13 @@
       position: absolute;
       font-size: 24px;
       color: #ff6f91;
-      animation: fly 1.2s ease-out forwards;
+      animation: fly 2.5s linear forwards;
       pointer-events: none;
     }
 
     @keyframes fly {
-      0% { transform: scale(1) translateY(0); opacity: 1; }
-      100% { transform: scale(2) translateY(-150px); opacity: 0; }
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-100vh); opacity: 0; }
     }
   </style>
 </head>
@@ -99,25 +101,30 @@
       document.getElementById("step" + num).style.display = "block";
     }
 
-    // Evet: Kalp efekti ve mesaj
+    // Kalp yağmuru
     document.getElementById("btn-yes").addEventListener("click", () => {
-      for (let i = 0; i < 30; i++) {
+      for (let i = 0; i < 60; i++) {
         const heart = document.createElement("div");
         heart.className = "heart";
         heart.innerText = "💖";
         heart.style.left = Math.random() * 100 + "vw";
         heart.style.top = Math.random() * 100 + "vh";
         heart.style.fontSize = (Math.random() * 10 + 20) + "px";
-        heart.style.animationDuration = (Math.random() * 1 + 1) + "s";
+        heart.style.animationDuration = (Math.random() * 2 + 1) + "s";
         document.body.appendChild(heart);
-        setTimeout(() => heart.remove(), 1500);
+        setTimeout(() => heart.remove(), 3000);
       }
-      alert("Seni hâlâ seviyorum... Teşekkür ederim 💌");
+      alert("O zaman bir gülümseme yolla bana 😊");
     });
 
-    // Hayır: başka sayfaya yönlendir
-    document.getElementById("btn-no").addEventListener("click", () => {
-      window.location.href = "https://tenor.com/view/cry-emoji-sad-sorry-cute-gif-25639048"; // üzgün emoji GIF'i
+    // Hayır butonu kaçsın
+    const btnNo = document.getElementById("btn-no");
+    btnNo.addEventListener("click", () => {
+      const x = Math.random() * (window.innerWidth - btnNo.offsetWidth);
+      const y = Math.random() * (window.innerHeight - btnNo.offsetHeight);
+      btnNo.style.position = "absolute";
+      btnNo.style.left = x + "px";
+      btnNo.style.top = y + "px";
     });
   </script>
 
