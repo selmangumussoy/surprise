@@ -2,85 +2,98 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <title>5 Adımda Sana Gelmek 💖</title>
+  <title>Barışalım mı? 💖</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       background: linear-gradient(to right, #fbc2eb, #a6c1ee);
       font-family: 'Segoe UI', sans-serif;
       text-align: center;
-      color: white;
       padding-top: 80px;
+      overflow: hidden;
+      color: #fff;
     }
 
     h1 {
       font-size: 2.5em;
       margin-bottom: 30px;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
     }
 
-    button {
+    #btn-yes, #btn-no {
       padding: 15px 30px;
-      margin: 10px;
-      font-size: 1.1em;
+      font-size: 1.2em;
       border: none;
       border-radius: 25px;
-      background-color: #ff6f91;
-      color: white;
       cursor: pointer;
-      transition: background 0.3s;
+      margin: 20px;
+      transition: all 0.3s ease;
     }
 
-    button:hover {
-      background-color: #ff4f73;
+    #btn-yes {
+      background: #ff6f91;
+      color: white;
     }
 
-    .step {
-      display: none;
-      font-size: 1.3em;
-      margin: 20px auto;
-      max-width: 600px;
-      line-height: 1.7;
+    #btn-no {
+      background: white;
+      color: #ff6f91;
+      position: absolute;
     }
 
-    #final {
-      font-size: 1.5em;
-      margin-top: 50px;
-      display: none;
-      background: rgba(255, 255, 255, 0.1);
-      padding: 20px;
-      border-radius: 20px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    .heart {
+      position: absolute;
+      font-size: 24px;
+      color: #ff6f91;
+      animation: fly 1s ease-out forwards;
+      pointer-events: none;
+    }
+
+    @keyframes fly {
+      0% { transform: scale(1) translateY(0); opacity: 1; }
+      100% { transform: scale(2) translateY(-150px); opacity: 0; }
     }
   </style>
 </head>
 <body>
 
-  <h1>5 Adımda Sana Gelmek 💫</h1>
+  <h1>Barışalım mı? 🙈</h1>
 
-  <button onclick="showStep(1)">1. Adım</button>
-  <button onclick="showStep(2)">2. Adım</button>
-  <button onclick="showStep(3)">3. Adım</button>
-  <button onclick="showStep(4)">4. Adım</button>
-  <button onclick="showStep(5)">5. Adım</button>
-
-  <div id="step1" class="step">Bazen hatalar yapabiliyorum... Ama inan ki kötü niyetle değil 💔</div>
-  <div id="step2" class="step">Sana kırıcı bir söz söylediysem, içim içimi yedi...</div>
-  <div id="step3" class="step">Sen benim için hâlâ çok değerlisin, bunu hiçbir şey değiştirmedi.</div>
-  <div id="step4" class="step">Gülüşün eksik kaldı, sohbetin yokluğu hissedildi...</div>
-  <div id="step5" class="step">Ve işte buradayım. Tekrar kalbine gelmek istiyorum... 💖</div>
-
-  <div id="final">Barışalım mı? 🙈  
-    <br><br>
-    <button onclick="alert('O zaman bir gülümseme yolla bana 😊')">Evet</button>
-  </div>
+  <button id="btn-yes">Evet 💖</button>
+  <button id="btn-no">Hayır 🙅‍♀️</button>
 
   <script>
-    function showStep(num) {
-      document.getElementById('step' + num).style.display = 'block';
-      if (num === 5) {
-        document.getElementById('final').style.display = 'block';
+    const btnYes = document.getElementById("btn-yes");
+    const btnNo = document.getElementById("btn-no");
+
+    // Kalpler fırlasın
+    btnYes.addEventListener("click", () => {
+      for (let i = 0; i < 30; i++) {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerText = "💖";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.top = Math.random() * 100 + "vh";
+        heart.style.fontSize = (Math.random() * 10 + 20) + "px";
+        heart.style.animationDuration = (Math.random() * 1 + 1) + "s";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 1200);
       }
-    }
+      alert("O zaman bir gülümseme yolla bana 😊");
+    });
+
+    // Hayır butonu kaçsın 😈
+    btnNo.addEventListener("mouseover", () => {
+      const x = Math.random() * (window.innerWidth - btnNo.offsetWidth);
+      const y = Math.random() * (window.innerHeight - btnNo.offsetHeight);
+      btnNo.style.left = x + "px";
+      btnNo.style.top = y + "px";
+    });
+
+    // Başlangıç konumu
+    btnNo.style.left = "50%";
+    btnNo.style.top = "60%";
+    btnNo.style.transform = "translate(-50%, -50%)";
   </script>
 
 </body>
