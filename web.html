@@ -1,204 +1,202 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hüsnü Selman Gümüşsoy | Software Engineer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>Hüsnü Selman Gümüşsoy | Yazılım Mühendisi</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    html {
-      scroll-behavior: smooth;
-    }
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #f9fafb;
-      color: #111827;
-      line-height: 1.6;
+      background-color: #f8f9fa;
+      color: #212529;
     }
-    .navbar {
-      background: #ffffff;
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      padding: 1rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 1px 5px rgba(0,0,0,0.05);
-      border-radius: 9999px;
-      margin: 1rem auto;
-      width: fit-content;
-    }
-    .navbar a {
-      color: #374151;
-      text-decoration: none;
-      font-weight: 500;
-      padding: 0.5rem 1rem;
-      border-radius: 9999px;
-      transition: background 0.2s;
-    }
-    .navbar a:hover {
-      background-color: #f3f4f6;
-    }
-    .container {
-      max-width: 800px;
-      margin: auto;
-      padding: 2rem;
-    }
-    .profile {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    .profile img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 1rem;
-    }
-    .profile h1 {
-      font-size: 1.8rem;
-      font-weight: 700;
-    }
-    .profile p.subtitle {
-      font-size: 1rem;
-      color: #6b7280;
-    }
-    .profile .contact a {
-      margin: 0 0.5rem;
-      text-decoration: none;
-      color: #2563eb;
-      font-weight: 500;
-    }
-    section {
-      margin-top: 3rem;
-    }
-    section h2 {
-      font-size: 1.5rem;
-      margin-bottom: 0.75rem;
-      color: #111827;
-    }
-    .badge {
-      display: inline-block;
-      background-color: #e0f2fe;
-      color: #0369a1;
-      padding: 0.4em 0.8em;
-      margin: 0.25rem;
-      border-radius: 9999px;
-      font-size: 0.85rem;
-    }
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1rem;
-    }
-    .project-card {
-      background: #fff;
-      border: 1px solid #e5e7eb;
+    .card {
+      background-color: #ffffff;
       border-radius: 12px;
-      padding: 1rem;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid #e9ecef;
     }
-    .project-card h3 {
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
     }
-    .project-card p {
-      font-size: 0.95rem;
-      color: #374151;
-    }
-    .project-card a {
+    .tag {
       display: inline-block;
-      margin-top: 0.5rem;
-      color: #2563eb;
-      text-decoration: none;
-      font-size: 0.9rem;
+      padding: 0.35em 0.8em;
+      font-size: 0.75rem;
+      font-weight: 500;
+      border-radius: 9999px;
+      background-color: #e7f5ff;
+      color: #1971c2;
+      margin: 0.2rem;
+    }
+    .section-title {
+        font-weight: 700;
+        font-size: 2.25rem;
+        color: #343a40;
+        margin-bottom: 2rem;
+        padding-top: 5rem; /* Navigasyon menüsü için boşluk */
+        margin-top: -5rem; /* Boşluğu dengelemek için */
     }
   </style>
 </head>
-<body>
-  <nav class="navbar">
-    <a href="#about">Hakkımda</a>
-    <a href="#projects">Projeler</a>
-    <a href="#skills">Teknolojiler</a>
-    <a href="#experience">Kariyer</a>
-  </nav>
+<body class="antialiased">
 
-  <div class="container">
-    <div class="profile">
-      <img src="https://avatars.githubusercontent.com/u/000000?v=4" alt="Profile Photo">
-      <h1>Hüsnü Selman Gümüşsoy</h1>
-      <p class="subtitle">Software Engineering Student @ Manisa Celal Bayar University</p>
-      <div class="contact">
-        <a href="mailto:gumussoyhs@gmail.com">Email</a>
-        <a href="https://linkedin.com/in/hselmangumussoy">LinkedIn</a>
-        <a href="https://github.com/selmangumussoy">GitHub</a>
+  <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-lg shadow-sm">
+    <div class="container mx-auto max-w-4xl px-4">
+      <div class="flex justify-center items-center h-16 space-x-8">
+        <a href="#about" class="text-gray-600 hover:text-blue-600 font-medium transition-colors">Hakkımda</a>
+        <a href="#experience" class="text-gray-600 hover:text-blue-600 font-medium transition-colors">Deneyim</a>
+        <a href="#projects" class="text-gray-600 hover:text-blue-600 font-medium transition-colors">Projeler</a>
+        <a href="#skills" class="text-gray-600 hover:text-blue-600 font-medium transition-colors">Yetenekler</a>
+        <a href="#education" class="text-gray-600 hover:text-blue-600 font-medium transition-colors">Eğitim</a>
       </div>
     </div>
+  </nav>
 
-    <section id="about">
-      <h2>Hakkımda</h2>
-      <p>Merhaba 👋, ben Hüsnü Selman Gümüşsoy. 3. sınıf yazılım mühendisliği öğrencisiyim. Java, Spring Boot, Microservice mimarileri ile çalışıyorum. Backend geliştirme, sistem tasarımı ve yazılım mimarisi alanlarında kendimi geliştirmeye odaklıyım.</p>
-    </section>
+  <div class="container mx-auto max-w-4xl px-4 py-12">
 
-    <section id="projects">
-      <h2>Projeler</h2>
-      <div class="projects-grid">
-        <div class="project-card">
-          <h3>E-commerce</h3>
-          <p>Java, Spring Boot, React.js, Flyway Migration, PostgreSQL ve domain-driven mimari kullanılarak geliştirilen bir e-ticaret uygulaması. Java Backend Developer olarak çalıştım.</p>
-        </div>
-        <div class="project-card">
-          <h3>ERP</h3>
-          <p>Vue.js, Java, Spring Boot ve PostgreSQL kullanarak geliştirilen bir ERP web sitesi. Takım liderliği, DevOps ve Development aşamalarında bulundum.</p>
-        </div>
-        <div class="project-card">
-          <h3>Basit Projeler</h3>
-          <p><strong>Blog API:</strong> Spring Boot ile JWT ve AOP destekli blog sistemi.  
-          <a href="https://github.com/selmangumussoy/blog-site-be" target="_blank">GitHub</a><br><br>
-          <strong>E-commerce Monolith:</strong> Monolit mimaride geliştirilen e-ticaret uygulaması.  
-          <a href="https://github.com/selmangumussoy/ecommerce-monolith" target="_blank">GitHub</a><br><br>
-          <strong>E-commerce Microservice:</strong> Microservice mimaride geliştirilen stok ve sipariş yönetim platformu.  
-          <a href="https://github.com/selmangumussoy/ecommerce-microcervice" target="_blank">GitHub</a>
-          </p>
-        </div>
+    <header id="about" class="flex flex-col md:flex-row items-center pt-16 -mt-16 mb-16">
+      <div class="md:mr-10 mb-6 md:mb-0 flex-shrink-0">
+        <img class="w-36 h-36 rounded-full object-cover shadow-lg" src="https://avatars.githubusercontent.com/u/83488103?v=4" alt="Hüsnü Selman Gümüşsoy Profil Fotoğrafı">
       </div>
-    </section>
-
-    <section id="skills">
-      <h2>Teknolojiler</h2>
-      <p>Kullandığım teknolojiler ve araçlar:</p>
       <div>
-        <span class="badge">Java</span>
-        <span class="badge">Spring Boot</span>
-        <span class="badge">Microservices</span>
-        <span class="badge">PostgreSQL</span>
-        <span class="badge">Docker</span>
-        <span class="badge">React.js</span>
-        <span class="badge">Vue.js</span>
-        <span class="badge">Git & GitHub</span>
-        <span class="badge">RabbitMQ</span>
-        <span class="badge">UML</span>
+        <h1 class="text-4xl font-bold text-gray-800">HÜSNÜ SELMAN GÜMÜŞSOY</h1>
+        <p class="text-lg text-gray-600 mt-1">Manisa Celal Bayar Üniversitesi Yazılım Mühendisliği Öğrencisi</p>
+        <p class="mt-4 text-gray-700 max-w-lg">
+          Java, Spring Boot ve mikroservis mimarileri üzerinde uzmanlaşmış, yeni teknolojileri keşfetmeye ve kendini sürekli geliştirmeye hevesli bir yazılım mühendisiyim.
+        </p>
+        <div class="mt-5 flex items-center space-x-5">
+          <a href="mailto:gumussoyhs@gmail.com" class="text-gray-500 hover:text-blue-600 transition-colors duration-300"><i class="fas fa-envelope fa-lg"></i><span class="ml-2 sr-only">E-mail</span></a>
+          <a href="https://www.linkedin.com/in/hselmangumussoy" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-blue-600 transition-colors duration-300"><i class="fab fa-linkedin fa-lg"></i><span class="ml-2 sr-only">LinkedIn</span></a>
+          <a href="https://github.com/selmangumussoy" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-blue-600 transition-colors duration-300"><i class="fab fa-github fa-lg"></i><span class="ml-2 sr-only">GitHub</span></a>
+          <a href="https://medium.com/@h.selmangumussoy" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-blue-600 transition-colors duration-300"><i class="fab fa-medium fa-lg"></i><span class="ml-2 sr-only">Medium Profile</span></a>
+        </div>
       </div>
-    </section>
+    </header>
 
-    <section id="experience">
-      <h2>Kariyer</h2>
-      <p>Toplamda 2+ yıllık yazılım geliştirme deneyimim bulunuyor. Son olarak CATCHSOFT firmasında yazılım geliştiricisi olarak çalışmaktayım.</p>
-      <ul>
-        <li>RESTful API geliştirme (Spring Boot)</li>
-        <li>Vue.js & React.js ile frontend geliştirme</li>
-        <li>Microservice entegrasyonları (Eureka, Gateway)</li>
-        <li>Flyway ile veritabanı versiyonlama</li>
-        <li>Docker ile konteynerleştirme</li>
-      </ul>
-    </section>
+    <main>
+      <section id="experience" class="mb-16">
+        <h2 class="section-title">Deneyim</h2>
+        <div class="card p-6">
+          <div class="flex justify-between items-start">
+            <div>
+              <h3 class="text-xl font-semibold text-gray-800">Software Engineer</h3>
+              <p class="text-md text-gray-600">CATCHSOFT</p>
+            </div>
+            <div class="text-right">
+              <p class="text-sm font-medium text-blue-600">Haziran 2024 - Devam Ediyor</p>
+              <p class="text-sm text-gray-500">Remote</p>
+            </div>
+          </div>
+          <ul class="mt-4 list-disc list-inside text-gray-700 space-y-2">
+            <li>Java ve Spring Boot ile RESTful API'lar geliştirerek backend süreçlerinde yer alındı.</li>
+            <li>Vue.js ve React.js kullanarak frontend arayüzleri geliştirildi ve backend servisleriyle entegre edildi.</li>
+            <li>PostgreSQL veritabanı yönetimi ve Flyway Migration ile versiyonlama yapıldı.</li>
+            <li>Hem Monolitik hem de Mikroservis mimarilerinde deneyim kazanarak sistem ölçeklenebilirliği optimize edildi.</li>
+            <li>Docker kullanılarak uygulamaların containerize edilmesi ve taşınabilirliği sağlandı.</li>
+            <li>Git ve GitHub kullanılarak versiyon kontrol süreçleri etkin bir şekilde yönetildi.</li>
+          </ul>
+        </div>
+      </section>
+      
+      <section id="projects" class="mb-16">
+        <h2 class="section-title">Projeler</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          
+          <div class="card p-6 flex flex-col">
+            <h3 class="text-xl font-semibold text-gray-800">E-commerce</h3>
+            <p class="text-gray-600 mt-2 flex-grow">Java, Spring Boot, React.js, Flyway Migration, PostgreSQL ve domain-driven mimari kullanılarak geliştirilen bir e-ticaret uygulaması. Java Backend Developer olarak çalıştım.</p>
+            <p class="text-xs text-gray-500 italic mt-3">Catchsoft bünyesinde</p>
+          </div>
+
+          <div class="card p-6 flex flex-col">
+            <h3 class="text-xl font-semibold text-gray-800">ERP</h3>
+            <p class="text-gray-600 mt-2 flex-grow">Vue.js, Java, Spring Boot ve PostgreSQL kullanarak geliştirilen bir ERP web sitesi. Takım liderliği, DevOps ve Development aşamalarında bulundum.</p>
+            <p class="text-xs text-gray-500 italic mt-3">Catchsoft bünyesinde</p>
+          </div>
+          
+          <div class="card p-6 flex flex-col">
+            <h3 class="text-xl font-semibold text-gray-800">E-commerce Microservice</h3>
+            <p class="text-gray-600 mt-2 flex-grow">Spring Boot kullanılarak geliştirilen mikroservis tabanlı e-ticaret platformu. Sipariş yönetimi ve stok senkronizasyonu üzerinde çalışıldı, mikroservisler arası iletişim Spring Cloud Gateway ve Eureka ile sağlandı.</p>
+            <div class="mt-4">
+              <a href="https://github.com/selmangumussoy/ecommerce-microcervice" target="_blank" rel="noopener noreferrer" class="font-medium text-blue-600 hover:underline">GitHub'da Görüntüle <i class="fas fa-arrow-right ml-1"></i></a>
+            </div>
+          </div>
+          <div class="card p-6 flex flex-col">
+            <h3 class="text-xl font-semibold text-gray-800">E-commerce Monolith</h3>
+            <p class="text-gray-600 mt-2 flex-grow">Spring Boot ve MySQL kullanılarak monolitik mimaride geliştirilmiş bir e-ticaret uygulaması.</p>
+            <div class="mt-4">
+              <a href="https://github.com/selmangumussoy/ecommerce-monolith" target="_blank" rel="noopener noreferrer" class="font-medium text-blue-600 hover:underline">GitHub'da Görüntüle <i class="fas fa-arrow-right ml-1"></i></a>
+            </div>
+          </div>
+          <div class="card p-6 flex flex-col">
+            <h3 class="text-xl font-semibold text-gray-800">Blog Site API</h3>
+            <p class="text-gray-600 mt-2 flex-grow">REST API, Spring Boot, Spring Security, AOP ve özel Response Builder mimarisi ile oluşturulmuş bir blog platformu.</p>
+            <div class="mt-4">
+              <a href="https://github.com/selmangumussoy/blog-site-be" target="_blank" rel="noopener noreferrer" class="font-medium text-blue-600 hover:underline">GitHub'da Görüntüle <i class="fas fa-arrow-right ml-1"></i></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="mb-16">
+        <h2 class="section-title">Teknik Yetenekler ve Araçlar</h2>
+        <div class="card p-6">
+          <div class="mb-5">
+              <h4 class="font-semibold text-lg text-gray-700 mb-3">Teknik Beceriler</h4>
+              <div class="flex flex-wrap">
+                  <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">Microservices</span><span class="tag">Vue.js</span><span class="tag">React.js</span><span class="tag">PostgreSQL</span><span class="tag">RabbitMQ</span><span class="tag">UML</span>
+              </div>
+          </div>
+          <div class="mb-5">
+              <h4 class="font-semibold text-lg text-gray-700 mb-3">Araçlar & Platformlar</h4>
+              <div class="flex flex-wrap">
+                  <span class="tag">Docker</span><span class="tag">GitHub</span><span class="tag">Flyway Migration</span><span class="tag">IntelliJ IDEA</span><span class="tag">Postman</span><span class="tag">Medium Blogging</span>
+              </div>
+          </div>
+           <div>
+              <h4 class="font-semibold text-lg text-gray-700 mb-3">Soft Skills</h4>
+              <div class="flex flex-wrap">
+                  <span class="tag">Teamwork</span><span class="tag">Problem-Solving</span><span class="tag">Communication</span><span class="tag">Adaptability</span>
+              </div>
+          </div>
+        </div>
+      </section>
+      
+      <section id="education" class="mb-16">
+        <h2 class="section-title">Eğitim</h2>
+        <div class="card p-6">
+          <div class="mb-4">
+            <div class="flex justify-between items-center">
+              <h3 class="text-lg font-semibold text-gray-800">Bachelor of Software Engineering</h3>
+              <p class="text-sm font-medium text-gray-600">2022-2026</p>
+            </div>
+            <p class="text-md text-gray-600">Manisa Celal Bayar University</p>
+          </div>
+          <hr class="my-4">
+          <div>
+            <div class="flex justify-between items-center">
+              <h3 class="text-lg font-semibold text-gray-800">High School</h3>
+              <p class="text-sm font-medium text-gray-600">2018-2022</p>
+            </div>
+            <p class="text-md text-gray-600">Şehit Selim Cansız Fen Lisesi</p>
+             <p class="text-sm text-gray-500 mt-1">Okul birincisi olarak mezun olundu.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    
+    <footer class="text-center mt-12">
+        <p class="text-gray-500">&copy; 2024 Hüsnü Selman Gümüşsoy. Tüm hakları saklıdır.</p>
+    </footer>
+
   </div>
 </body>
 </html>
