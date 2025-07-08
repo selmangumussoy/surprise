@@ -1,124 +1,204 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Başka Bir Evrende</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hüsnü Selman Gümüşsoy | Software Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      background: linear-gradient(to right, #ffe6e6, #fff0f5);
+    * {
       margin: 0;
-      font-family: 'Georgia', serif;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f9fafb;
+      color: #111827;
+      line-height: 1.6;
+    }
+    .navbar {
+      background: #ffffff;
       display: flex;
       justify-content: center;
-      align-items: center;
-      height: 100vh;
-      overflow: hidden;
+      gap: 1.5rem;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+      border-radius: 9999px;
+      margin: 1rem auto;
+      width: fit-content;
     }
-
-    .card {
-      background: white;
-      padding: 50px 40px;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      max-width: 750px;
-      width: 90%;
+    .navbar a {
+      color: #374151;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      transition: background 0.2s;
+    }
+    .navbar a:hover {
+      background-color: #f3f4f6;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+    }
+    .profile {
       text-align: center;
-      position: absolute;
-      opacity: 0;
-      transform: scale(0.9);
-      transition: all 0.6s ease;
+      margin-bottom: 2rem;
     }
-
-    .card.active {
-      opacity: 1;
-      transform: scale(1);
-      z-index: 1;
+    .profile img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
     }
-
-    .card h1 {
-      font-size: 28px;
-      margin-bottom: 20px;
-      color: #d6336c;
+    .profile h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
     }
-
-    .card p {
-      font-size: 19px;
-      line-height: 1.7;
-      color: #333;
-      white-space: pre-line;
+    .profile p.subtitle {
+      font-size: 1rem;
+      color: #6b7280;
     }
-
-    .next-button {
-      margin-top: 30px;
-      padding: 10px 20px;
-      background-color: #d6336c;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: background 0.3s;
+    .profile .contact a {
+      margin: 0 0.5rem;
+      text-decoration: none;
+      color: #2563eb;
+      font-weight: 500;
     }
-
-    .next-button:hover {
-      background-color: #b42c5c;
+    section {
+      margin-top: 3rem;
+    }
+    section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: #111827;
+    }
+    .badge {
+      display: inline-block;
+      background-color: #e0f2fe;
+      color: #0369a1;
+      padding: 0.4em 0.8em;
+      margin: 0.25rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .project-card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+    }
+    .project-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    .project-card p {
+      font-size: 0.95rem;
+      color: #374151;
+    }
+    .project-card a {
+      display: inline-block;
+      margin-top: 0.5rem;
+      color: #2563eb;
+      text-decoration: none;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
+  <nav class="navbar">
+    <a href="#about">Hakkımda</a>
+    <a href="#projects">Projeler</a>
+    <a href="#skills">Teknolojiler</a>
+    <a href="#experience">Kariyer</a>
+  </nav>
 
-  <div class="card active">
-    <h1>Bir Duayla</h1>
-    <p>
-An olur iç çekerek anarım seni sessizce<br/>
-Saba rüzgarı gibi geçtin, kaldım hazan vaktince<br/>
-Leylü nehar adını andım, her seherde gözlerim yolda<br/>
-İçimde bir kor var hala, belki tekrar buluruz birbirimizi bir duayla...
-    </p>
-    <button class="next-button" onclick="nextCard()">Devam Et</button>
+  <div class="container">
+    <div class="profile">
+      <img src="https://avatars.githubusercontent.com/u/000000?v=4" alt="Profile Photo">
+      <h1>Hüsnü Selman Gümüşsoy</h1>
+      <p class="subtitle">Software Engineering Student @ Manisa Celal Bayar University</p>
+      <div class="contact">
+        <a href="mailto:gumussoyhs@gmail.com">Email</a>
+        <a href="https://linkedin.com/in/hselmangumussoy">LinkedIn</a>
+        <a href="https://github.com/selmangumussoy">GitHub</a>
+      </div>
+    </div>
+
+    <section id="about">
+      <h2>Hakkımda</h2>
+      <p>Merhaba 👋, ben Hüsnü Selman Gümüşsoy. 3. sınıf yazılım mühendisliği öğrencisiyim. Java, Spring Boot, Microservice mimarileri ile çalışıyorum. Backend geliştirme, sistem tasarımı ve yazılım mimarisi alanlarında kendimi geliştirmeye odaklıyım.</p>
+    </section>
+
+    <section id="projects">
+      <h2>Projeler</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>E-commerce</h3>
+          <p>Java, Spring Boot, React.js, Flyway Migration, PostgreSQL ve domain-driven mimari kullanılarak geliştirilen bir e-ticaret uygulaması. Java Backend Developer olarak çalıştım.</p>
+        </div>
+        <div class="project-card">
+          <h3>ERP</h3>
+          <p>Vue.js, Java, Spring Boot ve PostgreSQL kullanarak geliştirilen bir ERP web sitesi. Takım liderliği, DevOps ve Development aşamalarında bulundum.</p>
+        </div>
+        <div class="project-card">
+          <h3>Basit Projeler</h3>
+          <p><strong>Blog API:</strong> Spring Boot ile JWT ve AOP destekli blog sistemi.  
+          <a href="https://github.com/selmangumussoy/blog-site-be" target="_blank">GitHub</a><br><br>
+          <strong>E-commerce Monolith:</strong> Monolit mimaride geliştirilen e-ticaret uygulaması.  
+          <a href="https://github.com/selmangumussoy/ecommerce-monolith" target="_blank">GitHub</a><br><br>
+          <strong>E-commerce Microservice:</strong> Microservice mimaride geliştirilen stok ve sipariş yönetim platformu.  
+          <a href="https://github.com/selmangumussoy/ecommerce-microcervice" target="_blank">GitHub</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Teknolojiler</h2>
+      <p>Kullandığım teknolojiler ve araçlar:</p>
+      <div>
+        <span class="badge">Java</span>
+        <span class="badge">Spring Boot</span>
+        <span class="badge">Microservices</span>
+        <span class="badge">PostgreSQL</span>
+        <span class="badge">Docker</span>
+        <span class="badge">React.js</span>
+        <span class="badge">Vue.js</span>
+        <span class="badge">Git & GitHub</span>
+        <span class="badge">RabbitMQ</span>
+        <span class="badge">UML</span>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>Kariyer</h2>
+      <p>Toplamda 2+ yıllık yazılım geliştirme deneyimim bulunuyor. Son olarak CATCHSOFT firmasında yazılım geliştiricisi olarak çalışmaktayım.</p>
+      <ul>
+        <li>RESTful API geliştirme (Spring Boot)</li>
+        <li>Vue.js & React.js ile frontend geliştirme</li>
+        <li>Microservice entegrasyonları (Eureka, Gateway)</li>
+        <li>Flyway ile veritabanı versiyonlama</li>
+        <li>Docker ile konteynerleştirme</li>
+      </ul>
+    </section>
   </div>
-
-  <div class="card">
-    <h1>Mihriban</h1>
-    <p>
-Hasbel kader buldum sade bir Mihriban<br/>
-Gönlümdeki koru eyledi dil-aram<br/>
-Muhabbet ki tüm idrakimi susturan<br/>
-Konsun sineme bülbül-i naram
-    </p>
-    <button class="next-button" onclick="nextCard()">Devam Et</button>
-  </div>
-
-  <div class="card">
-    <h1>Gözlerin</h1>
-    <p>
-Masum gözlerin bıraktı kalbimde iz<br/>
-Gözlerin ki bende derya deniz<br/>
-Bazen sinirli ve bazen ise komiğiz<br/>
-Önemli olan biz kendimiziz.
-    </p>
-    <button class="next-button" onclick="goToStart()">Başa Dön</button>
-  </div>
-
-  <script>
-    let currentCard = 0;
-    const cards = document.querySelectorAll('.card');
-
-    function nextCard() {
-      if (currentCard < cards.length - 1) {
-        cards[currentCard].classList.remove('active');
-        currentCard++;
-        cards[currentCard].classList.add('active');
-      }
-    }
-
-    function goToStart() {
-      cards[currentCard].classList.remove('active');
-      currentCard = 0;
-      cards[currentCard].classList.add('active');
-    }
-  </script>
-
 </body>
 </html>
